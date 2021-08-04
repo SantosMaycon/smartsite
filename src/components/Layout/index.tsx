@@ -25,6 +25,9 @@ const Layout = ({ locations }: LayoutProps) => {
         <Form state={state} setState={setState} locations={locations} />
         <Legend />
         <S.Cards>
+          {state.length === 0 && (
+            <S.Message>Nenhuma unidade encontrada</S.Message>
+          )}
           {state.map((object, id) => (
             <Card key={id} {...object} />
           ))}

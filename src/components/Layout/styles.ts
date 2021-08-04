@@ -92,3 +92,14 @@ export const Span = styled.span`
     }
   `}
 `
+export const Message = styled.h1`
+  ${({ theme }) => css`
+    margin: 2rem 0;
+
+    font-size: 2.8rem;
+    text-align: center;
+    font-weight: bolder;
+
+    color: ${theme.colors.red};
+  `}
+`
