@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -21,7 +21,7 @@ const GlobalStyles = createGlobalStyle`
     font-family: "Gotham";
     src: url("/fonts/gotham-book.woff2");
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
     font-display: swap;
   }
 
@@ -29,17 +29,17 @@ const GlobalStyles = createGlobalStyle`
     font-family: "Gotham";
     src: url("/fonts/gotham-light.woff2");
     font-style: normal;
-    font-weight: lighter;
+    font-weight: 300;
     font-display: swap;
   }
 
   /*** The new CSS Reset - version 1.2.0 (last updated 23.7.2021) ***/
 
   /* Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property */
-  *:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
+  /* *:where(:not(iframe, canvas, img, svg, video):not(svg *)) {
     all: unset;
     display: revert;
-  }
+  } */
 
   *,
   *::before,
@@ -74,13 +74,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: 62.5%;
   }
 
-  html, body, #__next {
-    height: 100%;
-  }
-
-  body {
-    font-family: "Gotham", --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-  }
+  ${({ theme }) => css`
+    body {
+      font-family: ${theme.font.family};
+    }
+  `}
 `
 
 export default GlobalStyles
